@@ -5,10 +5,14 @@ const bodyParser = require('body-parser');
 
 const app = express();
 
+const { User } = require('./app/models');
+
+User.create({ name: 'Fábio', email: 'fsmaiorano@gmail.com', password: '123456' });
+
 nunjucks.configure(path.resolve('app', 'views'), {
   autoescape: true,
   express: app,
-})
+});
 
 app.set('view engine', 'njk');
 app.use(bodyParser.urlencoded({ extended: false }));

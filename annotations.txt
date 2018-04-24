@@ -1,7 +1,14 @@
-# Init Sequelize
+# Create database
+name: snippetfy
 
+# Init Sequelize
 node_modules/.bin/sequelize init
 
 # Create database
-
 name: snippetfy
+
+# Create Migration
+node_modules/.bin/sequelize migration:create --name=create-users
+
+# Run Migration
+node_modules/.bin/sequelize db:migrate
