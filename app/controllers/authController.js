@@ -11,6 +11,7 @@ module.exports = {
   async register(req, res) {
     const { email } = req.body;
     if (await User.findOne({ where: { email } })) {
+      req.flash('error', 'E-mail já cadastrado');
       return res.redirect('back');
     }
 
@@ -18,6 +19,8 @@ module.exports = {
 
     // { name, email, password, password}
     await User.create({ ...req.body, password });
+
+    req.flash('success', 'Usuário cadastrado com sucesso');
     return res.redirect('/');
   },
 };
