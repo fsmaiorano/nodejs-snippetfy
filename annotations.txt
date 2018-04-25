@@ -8,7 +8,9 @@ node_modules/.bin/sequelize init
 name: snippetfy
 
 # Create Migration
+  * Create migration and configure (ex: new table).
 node_modules/.bin/sequelize migration:create --name=create-users
 
 # Run Migration
+  * Run migration for deploy in database.
 node_modules/.bin/sequelize db:migrate
