@@ -14,3 +14,9 @@ node_modules/.bin/sequelize migration:create --name=create-users
 # Run Migration
   * Run migration for deploy in database.
 node_modules/.bin/sequelize db:migrate
+
+
+# Database
+
+insert into categories (UserId, title, createdAt, updatedAt) values (3, 'NodeJS', now(), now())
+insert into snippets (CategoryId, title, content, createdAt, updatedAt) values (1, 'teste snippet', 'teste', now(), now())
