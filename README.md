@@ -7,7 +7,7 @@
 - NodeJS
 - MariaDB or MySQL
 
-# database
+# database:
 
 - Create a database with name: snippetfy
 - Run: ./node_modules/.bin/sequelize db:migrate
@@ -22,7 +22,9 @@
   };
 ```
 
-```sh
- $ npm install
- $ npm start
+## run:
+
+```js
+  npm install
+  npm start
 ```
