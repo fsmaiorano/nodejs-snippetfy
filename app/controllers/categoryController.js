@@ -1,4 +1,4 @@
-const { Category } = require('../models');
+const { Category, Snippet } = require('../models');
 
 module.exports = {
   async store(req, res, next) {
@@ -15,6 +15,24 @@ module.exports = {
   },
 
   async show(req, res, next) {
-    return res.render('categories/show');
+    try {
+    const categories = await Category.findAll({
+      include: [Snippet],
+      where: {
+        UserId: req.session.user.id,
+      },
+    });
+
+    const snippets = await Snippet.findAll({
+      where: { CategoryId: req.params.id },
+    });
+
+    const activeCategory = req.params.id;
+
+    return res.render('categories/show', { categories, snippets, activeCategory});
+  } catch (err) {
+    return next(err)
+  }
+
   },
 };
