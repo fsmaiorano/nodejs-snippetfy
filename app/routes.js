@@ -4,6 +4,7 @@ const routes = express.Router();
 const authController = require('./controllers/authController');
 const dashboardController = require('./controllers/dashboardController');
 const categoryController = require('./controllers/categoryController');
+const snippetController = require('./controllers/snippetController');
 
 const authMiddleware = require('./middlewares/auth');
 const guestMiddleware = require('./middlewares/guest');
@@ -32,6 +33,9 @@ routes.get('/app/dashboard', dashboardController.index);
 // Categories
 routes.post('/app/categories/create', categoryController.store);
 routes.get('/app/categories/:id', categoryController.show);
+
+// Snippets
+routes.post('/app/categories/:categoryId/snippets/create', snippetController.store);
 
 routes.use((req, res) => res.render('errors/404'));
 
