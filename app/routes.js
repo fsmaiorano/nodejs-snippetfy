@@ -37,6 +37,7 @@ routes.get('/app/categories/:id', categoryController.show);
 // Snippets
 routes.post('/app/categories/:categoryId/snippets/create', snippetController.store);
 routes.get('/app/categories/:categoryId/snippets/:id', snippetController.show);
+routes.put('/app/categories/:categoryId/snippets/:id', snippetController.update);
 
 routes.use((req, res) => res.render('errors/404'));
 
