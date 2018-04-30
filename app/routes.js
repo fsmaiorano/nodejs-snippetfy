@@ -29,8 +29,9 @@ routes.post('/authenticate', authController.authenticate);
 routes.use('/app', authMiddleware);
 routes.get('/app/dashboard', dashboardController.index);
 
-// Categoria
+// Categories
 routes.post('/app/categories/create', categoryController.store);
+routes.get('/app/categories/:id', categoryController.show);
 
 routes.use((req, res) => res.render('errors/404'));
 

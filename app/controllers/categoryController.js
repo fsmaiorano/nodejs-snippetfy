@@ -13,4 +13,8 @@ module.exports = {
       return next(err);
     }
   },
+
+  async show(req, res, next) {
+    return res.render('categories/show');
+  },
 };
