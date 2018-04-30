@@ -38,6 +38,7 @@ routes.get('/app/categories/:id', categoryController.show);
 routes.post('/app/categories/:categoryId/snippets/create', snippetController.store);
 routes.get('/app/categories/:categoryId/snippets/:id', snippetController.show);
 routes.put('/app/categories/:categoryId/snippets/:id', snippetController.update);
+routes.delete('/app/categories/:categoryId/snippets/:id', snippetController.destroy);
 
 routes.use((req, res) => res.render('errors/404'));
 

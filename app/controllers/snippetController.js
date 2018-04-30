@@ -51,11 +51,21 @@ module.exports = {
 
       await snippet.update(req.body);
 
-      req.flash('success','Snippet atualizado com sucesso!');
+    req.flash('success','Snippet atualizado com sucesso');
     return res.redirect(`/app/categories/${req.params.categoryId}/snippets/${snippet.id}`);
 
     } catch(err) {
       next(err);
     }
   },
+
+  async destroy(req,res,next){
+    try {
+      await Snippet.destroy({where: { id: req.params.id}});
+      req.flash('success', 'Snippet removido com sucesso');
+      return res.redirect(`/app/categories/${req.params.categoryId}`)
+    } catch(err) {
+      next(err);
+    }
+  }
 };
